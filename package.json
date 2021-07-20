@@ -1,0 +1,26 @@
+{
+  "name": "excel-js2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "franklin.js",
+  "scripts": {
+    "start": "webpack --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "private": "true",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slav73/excel-course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slav73/excel-course/issues"
+  },
+  "homepage": "https://github.com/slav73/excel-course#readme",
+  "devDependencies": {
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
+  }
+}
