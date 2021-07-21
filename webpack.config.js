@@ -3,43 +3,53 @@ const HtmlwebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = {
-  context: path.resolve(__dirname, 'src'),
-  entry: {
-    main: ['@babel/polyfill', './index.js'],
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js',
-  },
-  resolve: {
-    extensions: ['.js'],
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
+module.exports = (env, argv) => {
+  const isProd = argv.mode === 'production'
+  const isDev = !isProd
+
+  const filename = (ext) =>
+    isProd ? `[name].[contenthash].bundle.${ext}` : `[name].bundle.${ext}`
+
+  return {
+    context: path.resolve(__dirname, 'src'),
+    entry: {
+      main: ['@babel/polyfill', './index.js'],
     },
-  },
-  plugins: [
-    new HtmlwebpackPlugin({
-      template: './index.html',
-    }),
-    new CopyPlugin({
-      patterns: [
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: filename('js'),
+      clean: true,
+    },
+    resolve: {
+      extensions: ['.js'],
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
+    devtool: isDev ? 'source-map' : false,
+    plugins: [
+      new HtmlwebpackPlugin({
+        template: './index.html',
+      }),
+      new CopyPlugin({
+        patterns: [
+          {
+            from: path.resolve(__dirname, 'src', 'favicon.ico'),
+            to: path.resolve(__dirname, 'dist'),
+          },
+        ],
+      }),
+      new MiniCssExtractPlugin({
+        filename: filename('css'),
+      }),
+    ],
+    module: {
+      rules: [
         {
-          from: path.resolve(__dirname, 'src', 'favicon.ico'),
-          to: path.resolve(__dirname, 'dist'),
+          test: /\.s[ac]ss$/i,
+          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         },
       ],
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].bundle.css',
-    }),
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      },
-    ],
-  },
+    },
+  }
 }
