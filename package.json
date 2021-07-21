@@ -18,8 +18,12 @@
   "bugs": {
     "url": "https://github.com/slav73/excel-course/issues"
   },
+  "browserslist": "> 0.25%, not dead",
   "homepage": "https://github.com/slav73/excel-course#readme",
   "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "babel-loader": "^8.2.2",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
@@ -28,5 +32,8 @@
     "sass-loader": "^12.1.0",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
   }
 }
