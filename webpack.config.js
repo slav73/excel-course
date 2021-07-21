@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlwebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -29,5 +30,16 @@ module.exports = {
         },
       ],
     }),
+    new MiniCssExtractPlugin({
+      filename: '[name].bundle.css',
+    }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+    ],
+  },
 }
