@@ -27,6 +27,12 @@ module.exports = (env, argv) => {
       },
     },
     devtool: isDev ? 'source-map' : false,
+    devServer: {
+      port: '3000',
+      open: true,
+      hot: true,
+    },
+    target: 'web',
     plugins: [
       new HtmlwebpackPlugin({
         template: './index.html',
