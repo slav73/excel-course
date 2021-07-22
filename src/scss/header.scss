@@ -11,10 +11,28 @@
   display: flex;
   justify-content: space-between;
 
-  background-color: yellow;
   & .input {
+    margin: 0;
+    padding: 2px 7px;
+    min-width: 1px;
+    color: #000;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    height: 20px;
+    font-size: 18px;
+    line-height: 32px;
+    outline: none;
+
+    &:focus {
+      border: 2px solid #1a73e8;
+    }
+
+    &:hover {
+      border: 1px solid $border-color;
+    }
   }
 
-  & .button {
+  .button {
+    @include button(red);
   }
 }
