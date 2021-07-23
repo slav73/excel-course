@@ -55,8 +55,8 @@ module.exports = (env, argv) => {
     devtool: isDev ? 'source-map' : false,
     devServer: {
       port: '3000',
-      open: true,
       hot: true,
+      open: true,
     },
     target: 'web',
     plugins: plugins(),
