@@ -50,6 +50,7 @@ module.exports = (env, argv) => {
       extensions: ['.js'],
       alias: {
         '@': path.resolve(__dirname, 'src'),
+        '@core': path.resolve(__dirname, 'src/core'),
       },
     },
     devtool: isDev ? 'source-map' : false,
@@ -66,6 +67,16 @@ module.exports = (env, argv) => {
           test: /\.s[ac]ss$/i,
           exclude: /node_modules/,
           use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
+          },
         },
       ],
     },

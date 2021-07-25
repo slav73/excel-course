@@ -1,10 +1,5 @@
 module.exports = {
   parser: '@babel/eslint-parser',
-  parserOptions: {
-    babelOptions: {
-      configFile: './babel.config.json',
-    },
-  },
   env: {
     browser: true,
     node: true,
@@ -15,5 +10,10 @@ module.exports = {
     semi: 'off',
     'comma-dangle': 'off',
     'require-jsdoc': 'off',
+    'object-curly-spacing': 'off',
+    'spaced-comment': 'off',
+    'no-debugger': 'off',
+    indent: 'off',
+    'no-unused-vars': 'off',
   },
 }
