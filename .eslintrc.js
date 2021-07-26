@@ -15,5 +15,6 @@ module.exports = {
     'no-debugger': 'off',
     indent: 'off',
     'no-unused-vars': 'off',
+    'operator-linebreak': 'off',
   },
 }
