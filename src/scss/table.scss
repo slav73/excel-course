@@ -73,7 +73,8 @@
     opacity: 0;
     background: $primary-color;
 
-    &:hover {
+    &:hover,
+    &:active {
       opacity: 1;
     }
   }
@@ -82,8 +83,11 @@
     top: 0;
     width: 4px;
 
-    &:hover {
+    &:hover,
+    &:active {
       cursor: col-resize;
+      bottom: -5000px;
+      z-index: 1000;
     }
   }
 
@@ -91,8 +95,11 @@
     left: 0;
     height: 4px;
 
-    &:hover {
+    &:hover,
+    &:active {
       cursor: row-resize;
+      right: -5000px;
+      z-index: 1000;
     }
   }
 }
