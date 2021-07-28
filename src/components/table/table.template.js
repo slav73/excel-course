@@ -3,11 +3,6 @@ const CODES = {
   Z: 90,
 }
 
-// function toCell(row, col) {
-//   return `
-//   `
-// }
-
 function toCell(row) {
   return function(_, col) {
     return `
