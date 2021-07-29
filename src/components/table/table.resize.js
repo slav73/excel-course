@@ -32,10 +32,11 @@ export function resizeHandler($root, event) {
         $parent.css({ height: value + 'px' })
         $resizer.css({ bottom: 0 })
       }
-
+      console.log('Type: ', $parent.data[type])
       resolve({
         value,
-        id: type === 'col' ? $parent.data.col : null,
+        type,
+        id: $parent.data[type],
       })
     }
   })

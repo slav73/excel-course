@@ -4,10 +4,10 @@ const CODES = {
 }
 
 const DEFAULT_WIDTH = 120
+const DEFAULT_HEIGHT = 24
 
 function toCell(state, row) {
   return function(_, col) {
-    console.log(state.colState[col])
     const width = getWidth(state.colState, col)
     return `
       <div
@@ -40,7 +40,7 @@ function createRow(index, content) {
     ? '<div class="row-resize" data-resize="row"></div>'
     : ''
   return `
-    <div class="row" data-type="resizable">
+    <div class="row" data-type="resizable"  data-row="${index}">
       <div class="row-info">
         ${index ? index : ''}
         ${resizer}
