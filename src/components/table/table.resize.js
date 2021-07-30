@@ -32,7 +32,7 @@ export function resizeHandler($root, event) {
         $parent.css({ height: value + 'px' })
         $resizer.css({ bottom: 0 })
       }
-      console.log('Type: ', $parent.data[type])
+
       resolve({
         value,
         type,
