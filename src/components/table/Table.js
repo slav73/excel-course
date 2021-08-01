@@ -36,6 +36,8 @@ export class Table extends ExcelComponent {
     this.$on('formula:done', () => {
       this.selection.current.focus()
     })
+
+    this.$subscribe((state) => console.log('Table state: ', state))
   }
 
   selectCell($cell) {
@@ -83,5 +85,6 @@ export class Table extends ExcelComponent {
 
   onInput(event) {
     this.$emit('table:input', $(event.target))
+    this.$dispatch({ type: 'TEST' })
   }
 }
