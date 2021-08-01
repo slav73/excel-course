@@ -16,5 +16,7 @@ module.exports = {
     indent: 'off',
     'no-unused-vars': 'off',
     'operator-linebreak': 'off',
+    'no-empty': 'off',
+    'no-invalid-this': 'off',
   },
 }
