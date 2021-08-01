@@ -9,7 +9,7 @@ import { rootReducer } from '@/redux/rootReducer'
 
 import './scss/index.scss'
 
-const store = createStore(rootReducer, { tableState: 'something' })
+const store = createStore(rootReducer, { colState: {} })
 
 const excel = new Excel('#app', {
   components: [Header, Toolbar, Formula, Table],
