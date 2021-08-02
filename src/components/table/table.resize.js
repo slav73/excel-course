@@ -12,11 +12,11 @@ export function resizeHandler($root, event) {
     document.onmousemove = (e) => {
       if (type === 'col') {
         const delta = e.pageX - coords.right
-        value = coords.width + delta + 'px'
+        value = coords.width + delta
         $resizer.css({ right: -delta + 'px' })
       } else {
         const delta = e.pageY - coords.bottom
-        value = coords.height + delta + 'px'
+        value = coords.height + delta
         $resizer.css({ bottom: -delta + 'px' })
       }
     }
@@ -25,17 +25,18 @@ export function resizeHandler($root, event) {
       document.onmousemove = null
       document.onmouseup = null
       if (type === 'col') {
-        $parent.css({ width: value })
-        cells.forEach((el) => (el.style.width = value))
+        $parent.css({ width: value + 'px' })
+        cells.forEach((el) => (el.style.width = value + 'px'))
         $resizer.css({ right: 0 })
       } else {
-        $parent.css({ height: value })
+        $parent.css({ height: value + 'px' })
         $resizer.css({ bottom: 0 })
       }
 
       resolve({
         value,
-        id: type === 'col' ? $parent.data.col : null,
+        type,
+        id: $parent.data[type],
       })
     }
   })

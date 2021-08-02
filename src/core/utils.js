@@ -15,3 +15,10 @@ export function range(start, end) {
 
   return new Array(end - start + 1).fill('').map((_, index) => start + index)
 }
+
+export function storage(key, value = null) {
+  if (!value) {
+    return JSON.parse(localStorage.getItem(key))
+  }
+  return localStorage.setItem(key, JSON.stringify(value))
+}
