@@ -10,6 +10,7 @@ export class TableSelection {
     this.clear()
     this.group.push($el)
     $el.focus().addClass(TableSelection.className)
+    console.log('Selected cell: ', $el)
     this.current = $el
   }
 

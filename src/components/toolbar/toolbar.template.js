@@ -56,6 +56,26 @@ export function createToolbar(state) {
           state['textDecoration'] === 'underline' ? 'none' : 'underline',
       },
     },
+    {
+      icon: 'border_bottom',
+      active: state['borderBottom'] === '2px solid rgb(0, 0, 0)',
+      value: {
+        borderBottom:
+          state['borderBottom'] === '2px solid rgb(0, 0, 0)'
+            ? '1px solid rgb(226, 227, 227)'
+            : '2px solid rgb(0, 0, 0)',
+      },
+    },
+    {
+      icon: 'border_right',
+      active: state['borderRight'] === '2px solid rgb(0, 0, 0)',
+      value: {
+        borderRight:
+          state['borderRight'] === '2px solid rgb(0, 0, 0)'
+            ? '1px solid rgb(226, 227, 227)'
+            : '2px solid rgb(0, 0, 0)',
+      },
+    },
   ]
   return buttons.map(toButton).join('')
 }
